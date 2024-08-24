@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task1 - Quest App</title>    
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+    
+<div class="container">
+
+    <h1>SORU EKLE</h1>
+    <form id="form" action="./add.html" method="post">
+        <label>Soru:</label>
+        <input class="input" type="text" name="soru">
+        <label>A Şıkkı:</label>
+        <input class="input" type="text" name="a">
+        <label>B Şıkkı:</label>
+        <input class="input" type="text" name="b">
+        <label>C Şıkkı:</label>
+        <input class="input" type="text" name="c">
+        <label>D Şıkkı:</label>
+        <input class="input" type="text" name="d">
+        <label>Zorluk</label>
+        <select class="input" name="zorluk">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+        <label>Doğru Cevap</label>
+        <select class="input" name="dogru">
+            <option value="a">A</option>
+            <option value="b">B</option>
+            <option value="c">C</option>
+            <option value="d">D</option>
+        </select>
+        <input type="hidden" name="action" value="add">
+        <input class="input" type="submit" value="Soru Ekle">
+      </form>
+
+</div>
+
+
+
+</body>
+
+<script src="../assets/scripts.js"></script>
+
+</html>
