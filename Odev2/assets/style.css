@@ -1,0 +1,64 @@
+body{
+
+    
+    display:flex;
+    min-height:100vh;
+
+}
+body >div {margin:auto;}
+
+
+.container{
+
+border: 2px;
+border-style: solid;
+border-radius: 15px;
+
+justify-content: center;
+flex: auto;
+flex-wrap: wrap;
+
+display: flex;
+
+padding:25px;
+max-width: 500px;
+}
+
+
+button{
+
+    padding:10px;
+    border-style: solid;
+    border-radius: 7.5px;
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+
+}
+
+.input{
+
+    padding:10px;
+    border-style: solid;
+    border-radius: 7.5px;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+
+}
+
+th, td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+h2{
+
+    padding:10px;
+    border-style: solid;
+    border-radius: 7.5px;
+    width: 100%;
+    text-align: center;
+
+}
