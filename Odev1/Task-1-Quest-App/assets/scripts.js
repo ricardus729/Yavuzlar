@@ -10,7 +10,14 @@ function appendSoru(soruArr) {
     let sorular = JSON.parse(localStorage.getItem('sorular')) || [];
     sorular.push(soru0);
 
-    localStorage.setItem('sorular', JSON.stringify(sorular));
+
+    try {
+
+         localStorage.setItem('sorular', JSON.stringify(sorular));
+
+    } catch (error) {
+        alert(error);
+    }
 
 }
 
@@ -22,7 +29,7 @@ function sil(soruIndex){
 
     localStorage.removeItem(localStorage.key(soruIndex));
   
-    location.href = "/Odev1/Task-1-Quest-App/admin/list.html"
+    location.href = "./list.html"
 
 }
 
@@ -83,10 +90,14 @@ function getSoru(id){
         let soru;
     
         soru = sorular[id];
+
+        let puan = localStorage.getItem("points");
     
         if(pasifSorular.length === sorular.length){
             localStorage.setItem("points", "0");
-            location.href = "/Odev1/Task-1-Quest-App/index.html";
+            let str0 = "Bütün soruları gördün! Puan: " + puan.toString();
+            alert(str0);
+            location.href = "./index.html";
             return;
         }
     
@@ -112,8 +123,9 @@ function getSoru(id){
 
 }
 
-
 window.onload = function() {
+
+
 
     if(localStorage.getItem("points") === null){
 
@@ -131,9 +143,10 @@ window.onload = function() {
         let sorular = JSON.parse(localStorage.getItem('sorular')) || [];
         sorular.forEach((element, index) => {
             console.log(sorular.getItem)
-            data = data + "<tr><td>" + element["soru"] + "</td><td><button onclick='sil(" +  index + ")'>Sil</button></td><td><a href='/Odev1/Task-1-Quest-App/admin/edit.html?id=" +  index + "'>Duzenle</a></td></tr>";
+            data = data + "<tr><td>" + element["soru"] + "</td><td><button onclick='sil(" +  index + ")'>Sil</button></td><td><a href='edit.html?id=" +  index + "'>Duzenle</a></td></tr>";
         });
 
+             
         adminListe.innerHTML = data;
 
     }   
@@ -147,8 +160,6 @@ window.onload = function() {
 
 
 
-
-
 let form = document.getElementById("form");
 if(!Object.is(form, null)){
 form.addEventListener("submit", function (e) {
@@ -156,7 +167,6 @@ form.addEventListener("submit", function (e) {
   
     const urlParams = new URLSearchParams(window.location.search);
     const id = parseInt(urlParams.get('id'));
-
 
     const promise1 = new Promise((resolve, reject) => {
         let soru = document.getElementsByName('soru')[0].value;
@@ -174,12 +184,11 @@ form.addEventListener("submit", function (e) {
             editSoru(id, [soru, a, b, c, d, zorluk, dogru]);
         }
 
+
+        location.href="list.html";
         resolve('Success!');
       });
       
-      promise1.then((value) => {
-        location.href="/Odev1/Task-1-Quest-App/admin/index.html";
-      });
 
   });
 }
